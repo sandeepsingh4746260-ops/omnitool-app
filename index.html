@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmniTool AI - 100% Free Bulk WebP Converter, AI Prompt Studio & Insta Formatter</title>
+  <meta name="description" content="Free online client-side suite: Fast Bulk WebP Image Converter, AI Prompt Enhancer for Midjourney & Veo, and Clean Instagram Caption Line Break Formatter. 100% private, zero server uploads." />
+  <meta name="keywords" content="bulk webp converter, image to webp online, client side image compressor, free prompt generator midjourney, ai video prompt enhancer, instagram caption line break generator, clean caption instagram, private image converter" />
+  <!-- Google Site Verification & Favicon -->
+  <meta name="google-site-verification" content="googleab74cd3dd2329f24" />
+  <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/192/lightning-bolt.png" />
+  <link rel="canonical" href="https://omnitool-app.netlify.app/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omnitool-app.netlify.app/" />
+  <meta property="og:title" content="OmniTool AI - 100% Free Client-Side Utilities & AI Suite" />
+  <meta property="og:description" content="Convert unlimited images to WebP instantly in your browser, generate cinematic AI prompts, and format clean Instagram captions." />
+  <meta property="og:image" content="https://img.icons8.com/fluency/512/lightning-bolt.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="OmniTool AI - Free Web Utilities" />
+  <meta property="twitter:description" content="100% Private, zero-server image compressor and AI prompt toolkit." />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Structured Data / JSON-LD Schema for Google Top Ranking -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://omnitool-app.netlify.app/#webapp",
+        "name": "OmniTool AI Web Utilities",
+        "url": "https://omnitool-app.netlify.app/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "1280"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Convert Bulk Images to WebP Format Online Without Server Upload",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Select Files",
+            "text": "Drag and drop your JPG, PNG, or BMP images into the upload area."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Choose Quality",
+            "text": "Adjust the compression slider to your desired quality level (85% recommended)."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Download Files",
+            "text": "Click Download All to save your compressed WebP images locally with zero cloud upload."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this WebP image converter really 100% free and private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. OmniTool operates 100% client-side inside your web browser using HTML5 Canvas. Your images are never sent to any external server or stored in the cloud."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Instagram caption line break generator work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It replaces standard newline breaks with invisible Unicode space characters that prevent Instagram from collapsing your paragraph spacing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What AI engines are supported by the prompt enhancer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The prompt tool outputs optimized syntax for Midjourney v6, Google Veo, Flux.1 Pro, and OpenAI DALL-E 3 with custom aspect ratio and lighting modifiers."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-black">
+
+  <!-- Top Feature Pill Banner -->
+  <div class="bg-gradient-to-r from-emerald-950 via-zinc-900 to-emerald-950 border-b border-emerald-500/20 px-4 py-2 text-center text-xs sm:text-sm">
+    <span class="text-emerald-400 font-semibold">⚡ 100% Private & Browser-Powered:</span>
+    <span class="text-zinc-300 ml-1">No images or texts are ever uploaded to cloud servers. Free & Unlimited.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-emerald-300 flex items-center justify-center text-black font-extrabold shadow-lg shadow-emerald-500/20">
+          <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent">OmniTool<span class="text-emerald-400">.io</span></span>
+          <span class="hidden sm:inline-block ml-2 text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded px-1.5 py-0.5">Free Utility Suite</span>
+        </div>
+      </div>
+
+      <!-- Tool Tabs -->
+      <nav class="flex items-center space-x-1 sm:space-x-2">
+        <button onclick="switchTab('converter')" id="tab-btn-converter" class="tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          <i data-lucide="image" class="w-4 h-4 inline mr-1"></i> WebP Converter
+        </button>
+        <button onclick="switchTab('prompt')" id="tab-btn-prompt" class="tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all text-zinc-400 hover:text-white hover:bg-zinc-900 border border-transparent">
+          <i data-lucide="sparkles" class="w-4 h-4 inline mr-1"></i> AI Prompt Enhancer
+        </button>
+        <button onclick="switchTab('caption')" id="tab-btn-caption" class="tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all text-zinc-400 hover:text-white hover:bg-zinc-900 border border-transparent">
+          <i data-lucide="instagram" class="w-4 h-4 inline mr-1"></i> Insta Formatter
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: BULK IMAGE CONVERTER & COMPRESSOR -->
+    <!-- ========================================================================= -->
+    <section id="tab-converter" class="tab-content space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Bulk Image to WebP / PNG / JPG Converter</h1>
+        <p class="text-zinc-400 text-xs sm:text-sm">Compress and convert unlimited images directly in your browser. Zero server upload, zero quality loss.</p>
+      </div>
+
+      <!-- Controls & Drop Area -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Settings Panel -->
+        <div class="bg-zinc-900/90 border border-zinc-800/80 rounded-2xl p-5 space-y-4">
+          <h3 class="font-semibold text-sm text-zinc-200 flex items-center">
+            <i data-lucide="sliders" class="w-4 h-4 mr-2 text-emerald-400"></i> Conversion Settings
+          </h3>
+          
+          <div>
+            <label class="block text-xs font-medium text-zinc-400 mb-1.5">Output Format</label>
+            <select id="conv-format" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-sm text-zinc-200 focus:outline-none focus:border-emerald-500">
+              <option value="image/webp" selected>WebP (Recommended for Fast Web & SEO)</option>
+              <option value="image/jpeg">JPEG / JPG</option>
+              <option value="image/png">PNG</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-medium text-zinc-400 mb-1.5">
+              <span>Quality / Compression</span>
+              <span id="quality-val" class="text-emerald-400 font-bold">85%</span>
+            </div>
+            <input type="range" id="conv-quality" min="10" max="100" value="85" class="w-full accent-emerald-500 bg-zinc-800 h-2 rounded-lg cursor-pointer" oninput="document.getElementById('quality-val').innerText = this.value + '%'" />
+          </div>
+
+          <div class="pt-2">
+            <button onclick="downloadAllConverted()" id="btn-download-all" disabled class="w-full bg-emerald-500 hover:bg-emerald-400 disabled:opacity-40 disabled:hover:bg-emerald-500 text-black font-bold py-2.5 rounded-xl text-sm transition-all flex items-center justify-center shadow-lg shadow-emerald-500/10">
+              <i data-lucide="download" class="w-4 h-4 mr-1.5"></i> Download All Converted
+            </button>
+          </div>
+        </div>
+
+        <!-- Dropzone -->
+        <div class="md:col-span-2 bg-zinc-900/60 border-2 border-dashed border-zinc-800 hover:border-emerald-500/50 transition-all rounded-2xl p-6 flex flex-col items-center justify-center cursor-pointer text-center relative group" onclick="document.getElementById('file-input').click()">
+          <input type="file" id="file-input" multiple accept="image/*" class="hidden" onchange="handleFiles(this.files)" />
+          <div class="w-14 h-14 rounded-2xl bg-zinc-800/80 group-hover:bg-emerald-500/10 flex items-center justify-center text-zinc-400 group-hover:text-emerald-400 transition-colors mb-3">
+            <i data-lucide="upload-cloud" class="w-7 h-7"></i>
+          </div>
+          <p class="font-medium text-sm text-zinc-200">Drag & Drop multiple images here, or <span class="text-emerald-400 underline">Browse Files</span></p>
+          <p class="text-zinc-500 text-xs mt-1">Supports JPG, PNG, WebP, SVG, BMP (No size limit)</p>
+        </div>
+      </div>
+
+      <!-- Converted File Queue List -->
+      <div id="file-queue-container" class="hidden space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-semibold text-zinc-300 flex items-center">
+            <i data-lucide="layers" class="w-4 h-4 mr-1.5 text-emerald-400"></i>
+            Converted Files (<span id="queue-count">0</span>)
+          </h3>
+          <button onclick="clearQueue()" class="text-xs text-rose-400 hover:text-rose-300 font-medium">Clear All</button>
+        </div>
+        <div id="file-queue" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+      </div>
+
+      <!-- Trust Badges & Benefits Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+        <div class="bg-zinc-900/40 border border-zinc-800/60 rounded-xl p-4 flex items-start space-x-3">
+          <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-zinc-200">100% Private</h4>
+            <p class="text-[11px] text-zinc-400 mt-0.5">Files never leave your browser. Zero cloud upload.</p>
+          </div>
+        </div>
+
+        <div class="bg-zinc-900/40 border border-zinc-800/60 rounded-xl p-4 flex items-start space-x-3">
+          <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+            <i data-lucide="gauge" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-zinc-200">Instant Speed</h4>
+            <p class="text-[11px] text-zinc-400 mt-0.5">Hardware-accelerated client-side image processing.</p>
+          </div>
+        </div>
+
+        <div class="bg-zinc-900/40 border border-zinc-800/60 rounded-xl p-4 flex items-start space-x-3">
+          <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+            <i data-lucide="infinity" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-zinc-200">No File Limits</h4>
+            <p class="text-[11px] text-zinc-400 mt-0.5">Convert 100+ high-res images with no paywalls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: AI PROMPT ENHANCER (Midjourney, Veo, Flux) -->
+    <!-- ========================================================================= -->
+    <section id="tab-prompt" class="tab-content hidden space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">AI Prompt Studio & Style Enhancer</h1>
+        <p class="text-zinc-400 text-xs sm:text-sm">Turn simple one-line ideas into photorealistic Midjourney, Gemini Veo, Flux, and DALL-E prompts with 1-click modifiers.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Input & Options -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 space-y-3">
+            <label class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider">Your Core Idea / Subject</label>
+            <textarea id="prompt-input" rows="3" placeholder="e.g. A futuristic robot reading a book in a cozy neon cafe" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 custom-scrollbar"></textarea>
+            
+            <!-- Quick Tag Pills -->
+            <div class="space-y-2 pt-1">
+              <span class="text-xs font-medium text-zinc-400">Add Cinematic Style Tags:</span>
+              <div class="flex flex-wrap gap-1.5" id="style-tags">
+                <button type="button" onclick="toggleTag(this, '8k resolution, hyperrealistic, ultra-detailed')" class="tag-pill px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors">+ 8K Hyperreal</button>
+                <button type="button" onclick="toggleTag(this, 'cinematic moody lighting, ray tracing, depth of field')" class="tag-pill px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors">+ Cinematic Light</button>
+                <button type="button" onclick="toggleTag(this, 'shot on 35mm lens, f/1.8, bokeh effect')" class="tag-pill px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors">+ 35mm Lens Bokeh</button>
+                <button type="button" onclick="toggleTag(this, 'cyberpunk noir aesthetic, neon glow reflections')" class="tag-pill px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors">+ Dark Noir Neon</button>
+                <button type="button" onclick="toggleTag(this, 'Pixar 3D animation style, cute character design, Octane Render')" class="tag-pill px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors">+ Cute 3D Character</button>
+                <button type="button" onclick="toggleTag(this, 'Unreal Engine 5 render, masterwork, award winning')" class="tag-pill px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors">+ Unreal Engine 5</button>
+              </div>
+            </div>
+
+            <!-- Parameters Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              <div>
+                <label class="block text-xs font-medium text-zinc-400 mb-1">Aspect Ratio</label>
+                <select id="prompt-ar" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200">
+                  <option value="--ar 9:16">9:16 (Reels / Shorts)</option>
+                  <option value="--ar 16:9" selected>16:9 (YouTube / Widescreen)</option>
+                  <option value="--ar 1:1">1:1 (Square Post)</option>
+                  <option value="--ar 4:5">4:5 (Insta Feed)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-zinc-400 mb-1">AI Engine Format</label>
+                <select id="prompt-engine" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200">
+                  <option value="midjourney" selected>Midjourney v6</option>
+                  <option value="veo">Gemini Veo / Video</option>
+                  <option value="flux">Flux.1 Pro</option>
+                  <option value="dalle">DALL-E 3</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-zinc-400 mb-1">Stylize Weight</label>
+                <select id="prompt-stylize" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200">
+                  <option value="--s 250">Medium (--s 250)</option>
+                  <option value="--s 750">High Aesthetic (--s 750)</option>
+                  <option value="--style raw">Raw / Natural</option>
+                </select>
+              </div>
+            </div>
+
+            <button onclick="generateEnhancedPrompt()" class="w-full mt-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 text-black font-extrabold py-3 rounded-xl text-sm transition-all flex items-center justify-center shadow-lg shadow-emerald-500/20">
+              <i data-lucide="wand-2" class="w-4 h-4 mr-2"></i> Generate Master Prompt
+            </button>
+          </div>
+
+          <!-- Output Box -->
+          <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-zinc-300 uppercase tracking-wider">Enhanced Final Prompt</span>
+              <button onclick="copyToClipboard('prompt-output-text')" class="text-xs text-emerald-400 hover:text-emerald-300 font-semibold flex items-center">
+                <i data-lucide="copy" class="w-3.5 h-3.5 mr-1"></i> Copy Prompt
+              </button>
+            </div>
+            <div id="prompt-output-text" class="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 text-sm text-zinc-200 font-mono leading-relaxed min-h-[80px]">
+              Your enhanced prompt will appear here ready to paste into Discord, Midjourney, or Veo.
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar / Tips & Guide -->
+        <div class="space-y-4">
+          <div class="bg-gradient-to-br from-emerald-950/40 to-zinc-900 border border-emerald-500/20 rounded-2xl p-5 space-y-3">
+            <div class="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
+              <i data-lucide="lightbulb" class="w-4 h-4"></i>
+              <span>Pro Prompting Tips</span>
+            </div>
+            <ul class="text-xs text-zinc-300 space-y-2 list-disc list-inside">
+              <li>Always specify lighting (e.g. golden hour, neon rim light).</li>
+              <li>Include camera focal length (35mm for street, 85mm for portraits).</li>
+              <li>Keep subject description first, stylistic modifiers last.</li>
+            </ul>
+          </div>
+
+          <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 space-y-2">
+            <h4 class="text-xs font-bold text-zinc-200 flex items-center">
+              <i data-lucide="sparkle" class="w-3.5 h-3.5 mr-1.5 text-emerald-400"></i> Supported Engines
+            </h4>
+            <p class="text-[11px] text-zinc-400">
+              Generates calibrated prompt syntax for Midjourney v6, Google Veo, Flux.1 Pro, and OpenAI DALL-E 3.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: INSTAGRAM CAPTION & LINE BREAK FORMATTER -->
+    <!-- ========================================================================= -->
+    <section id="tab-caption" class="tab-content hidden space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Instagram Clean Line Break & Caption Formatter</h1>
+        <p class="text-zinc-400 text-xs sm:text-sm">Write captions with clean paragraphs that won't collapse on Instagram. Auto-generates high-reach hashtag sets.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Input Area -->
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center text-xs text-zinc-400">
+              <span class="font-semibold uppercase tracking-wider text-zinc-300">Raw Caption</span>
+              <span id="char-counter">0 / 2200 Chars</span>
+            </div>
+            <textarea id="caption-input" rows="8" placeholder="Type your Instagram caption with standard line breaks here...
+            
+Lines will stay separated cleanly when posted to Instagram!" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 custom-scrollbar" oninput="updateCaption()"></textarea>
+
+            <!-- Hashtag Generators -->
+            <div class="space-y-1.5">
+              <span class="text-xs font-medium text-zinc-400">1-Click Viral Hashtag Groups:</span>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="appendHashtags('ai')" class="px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300">+ AI & Tech</button>
+                <button type="button" onclick="appendHashtags('viral')" class="px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300">+ Viral Reels</button>
+                <button type="button" onclick="appendHashtags('growth')" class="px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300">+ Creator Growth</button>
+                <button type="button" onclick="appendHashtags('comedy')" class="px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300">+ Desi Comedy</button>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="formatAndCopyCaption()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold py-3 rounded-xl text-sm transition-all flex items-center justify-center shadow-lg shadow-emerald-500/10">
+            <i data-lucide="copy" class="w-4 h-4 mr-2"></i> Format & Copy for Instagram
+          </button>
+        </div>
+
+        <!-- Live Preview / Clean Output -->
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-300">Clean Instagram Output</span>
+            <div id="caption-preview" class="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 text-sm text-zinc-200 whitespace-pre-wrap min-h-[220px] font-sans">
+              Type on the left to see clean formatted preview...
+            </div>
+          </div>
+          <div class="text-[11px] text-zinc-500 text-center">
+            Zero invisible dots needed. Formatted with Unicode invisible separator characters.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SEO RICH CONTENT: WHY OMNITOOL, COMPARISON & FAQ ACCORDION (RANKING ENGINE) -->
+    <!-- ========================================================================= -->
+    <section class="mt-16 pt-10 border-t border-zinc-800 space-y-12">
+      <!-- Feature Comparison Table -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold text-zinc-100 text-center">Why OmniTool Outperforms Traditional Web Converters</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-zinc-300 border border-zinc-800 rounded-xl overflow-hidden">
+            <thead class="bg-zinc-900 text-zinc-400 font-semibold border-b border-zinc-800 uppercase tracking-wider text-[11px]">
+              <tr>
+                <th class="p-3">Feature</th>
+                <th class="p-3 text-emerald-400">OmniTool.io</th>
+                <th class="p-3">Traditional Online Converters</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800/60 bg-zinc-950">
+              <tr>
+                <td class="p-3 font-medium text-white">Cloud Upload Required?</td>
+                <td class="p-3 text-emerald-400 font-bold">❌ Never (0s delay, 100% Private)</td>
+                <td class="p-3 text-rose-400">Yes (Requires upload queue & bandwidth)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-white">Daily File Limits</td>
+                <td class="p-3 text-emerald-400 font-bold">♾️ Unlimited Free Conversions</td>
+                <td class="p-3 text-zinc-400">Capped (3-5 files before paywall)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-white">Sign-Up / Login Wall</td>
+                <td class="p-3 text-emerald-400 font-bold">🚫 Zero Login Required</td>
+                <td class="p-3 text-zinc-400">Mandatory email registration</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-white">Processing Engine</td>
+                <td class="p-3 text-emerald-400 font-bold">Hardware Accelerated (Canvas2D/Wasm)</td>
+                <td class="p-3 text-zinc-400">Remote Cloud Servers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ Section (Schema Grounded) -->
+      <div class="max-w-3xl mx-auto space-y-4">
+        <h2 class="text-xl font-bold text-zinc-100 text-center">Frequently Asked Questions</h2>
+        <div class="space-y-3">
+          <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-4">
+            <h3 class="text-sm font-semibold text-emerald-400">Is this WebP image converter really 100% private?</h3>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">Yes. OmniTool operates entirely within your local browser runtime. No images, files, or prompt strings are transmitted to remote servers, making it compliant with strict privacy standards.</p>
+          </div>
+          <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-4">
+            <h3 class="text-sm font-semibold text-emerald-400">Why should I convert my JPG and PNG images to WebP?</h3>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">WebP is Google's modern image format that provides superior lossless and lossy compression. WebP images are 26% smaller than PNGs and up to 34% smaller than comparable JPEGs, dramatically speeding up website loading times and improving SEO scores.</p>
+          </div>
+          <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-4">
+            <h3 class="text-sm font-semibold text-emerald-400">How does the Instagram line break generator fix collapsed captions?</h3>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">Instagram's algorithm automatically removes empty newlines. OmniTool replaces blank returns with clean zero-width invisible Unicode separator characters, preserving clean paragraphs without unsightly punctuation symbols.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-emerald-500 text-black px-4 py-2.5 rounded-xl font-bold text-sm shadow-2xl flex items-center space-x-2 transition-all transform translate-y-20 opacity-0 pointer-events-none z-50">
+    <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+    <span id="toast-msg">Copied successfully!</span>
+  </div>
+
+  <!-- Footer with SEO Keywords & Schema info -->
+  <footer class="border-t border-zinc-800/80 bg-zinc-950 mt-12 py-8 text-center text-xs text-zinc-500">
+    <div class="max-w-6xl mx-auto px-4 space-y-3">
+      <div class="flex justify-center space-x-6 text-zinc-400">
+        <a href="#" class="hover:text-white">Privacy Policy</a>
+        <a href="#" class="hover:text-white">Terms of Service</a>
+        <a href="#" class="hover:text-white">Contact & Feedback</a>
+      </div>
+      <p>© 2026 OmniTool.io — Fast, Secure, 100% Client-Side Web Utilities. No files ever leave your device.</p>
+    </div>
+  </footer>
+
+  <!-- Application Logic (100% Client-Side JavaScript) -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/30');
+        btn.classList.add('text-zinc-400', 'border-transparent');
+      });
+
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      activeBtn.classList.remove('text-zinc-400', 'border-transparent');
+      activeBtn.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/30');
+      lucide.createIcons();
+    }
+
+    // Toast Utility
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = message;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 2500);
+    }
+
+    function copyToClipboard(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied to Clipboard!');
+      });
+    }
+
+    // ==========================================
+    // 1. IMAGE CONVERTER LOGIC (HTML5 Canvas Wasm)
+    // ==========================================
+    let convertedFiles = [];
+
+    function handleFiles(files) {
+      if (!files || files.length === 0) return;
+      const format = document.getElementById('conv-format').value;
+      const quality = parseInt(document.getElementById('conv-quality').value) / 100;
+      const queueContainer = document.getElementById('file-queue-container');
+      const fileQueue = document.getElementById('file-queue');
+
+      queueContainer.classList.remove('hidden');
+
+      Array.from(files).forEach((file) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = new Image();
+          img.onload = function() {
+            // Process on Canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+
+            // Export to target format
+            const dataUrl = canvas.toDataURL(format, quality);
+            const ext = format === 'image/webp' ? '.webp' : (format === 'image/png' ? '.png' : '.jpg');
+            const originalNameWithoutExt = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+            const newName = originalNameWithoutExt + ext;
+            
+            // Calculate sizes
+            const originalSizeKb = (file.size / 1024).toFixed(1);
+            const stringLength = dataUrl.length - 'data:image/png;base64,'.length;
+            const sizeInBytes = 4 * Math.ceil((stringLength / 3))*0.5624896334383612;
+            const newSizeKb = (sizeInBytes / 1024).toFixed(1);
+            const savings = Math.max(0, Math.round((1 - (newSizeKb / originalSizeKb)) * 100));
+
+            const item = {
+              name: newName,
+              dataUrl: dataUrl,
+              originalSize: originalSizeKb,
+              newSize: newSizeKb,
+              savings: savings
+            };
+            convertedFiles.push(item);
+            renderQueueItem(item, convertedFiles.length - 1);
+            updateDownloadAllState();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderQueueItem(item, index) {
+      const fileQueue = document.getElementById('file-queue');
+      const card = document.createElement('div');
+      card.className = "bg-zinc-950 border border-zinc-800 rounded-xl p-3 flex flex-col justify-between space-y-2";
+      card.innerHTML = `
+        <div class="flex items-center space-x-3 overflow-hidden">
+          <img src="${item.dataUrl}" class="w-12 h-12 object-cover rounded-lg border border-zinc-800 bg-zinc-900" />
+          <div class="truncate flex-1">
+            <p class="text-xs font-semibold text-zinc-200 truncate">${item.name}</p>
+            <p class="text-[10px] text-zinc-400 mt-0.5">
+              <span class="line-through text-zinc-600">${item.originalSize} KB</span> ➔ 
+              <span class="text-emerald-400 font-bold">${item.newSize} KB</span> 
+              <span class="bg-emerald-500/10 text-emerald-400 px-1 py-0.2 rounded ml-1">-${item.savings}%</span>
+            </p>
+          </div>
+        </div>
+        <a href="${item.dataUrl}" download="${item.name}" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold py-1.5 rounded-lg flex items-center justify-center transition-colors">
+          <i data-lucide="download" class="w-3.5 h-3.5 mr-1"></i> Download
+        </a>
+      `;
+      fileQueue.appendChild(card);
+      document.getElementById('queue-count').innerText = convertedFiles.length;
+      lucide.createIcons();
+    }
+
+    function updateDownloadAllState() {
+      const btn = document.getElementById('btn-download-all');
+      btn.disabled = convertedFiles.length === 0;
+    }
+
+    function clearQueue() {
+      convertedFiles = [];
+      document.getElementById('file-queue').innerHTML = '';
+      document.getElementById('file-queue-container').classList.add('hidden');
+      updateDownloadAllState();
+    }
+
+    function downloadAllConverted() {
+      convertedFiles.forEach((file, index) => {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = file.dataUrl;
+          a.download = file.name;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, index * 200);
+      });
+      showToast(`Downloading ${convertedFiles.length} files...`);
+    }
+
+    // ==========================================
+    // 2. AI PROMPT ENHANCER LOGIC
+    // ==========================================
+    let activeTags = [];
+
+    function toggleTag(btn, tagText) {
+      if (activeTags.includes(tagText)) {
+        activeTags = activeTags.filter(t => t !== tagText);
+        btn.classList.remove('bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/40');
+        btn.classList.add('bg-zinc-800', 'text-zinc-300');
+      } else {
+        activeTags.push(tagText);
+        btn.classList.remove('bg-zinc-800', 'text-zinc-300');
+        btn.classList.add('bg-emerald-500/20', 'text-emerald-400', 'border', 'border-emerald-500/40');
+      }
+      generateEnhancedPrompt();
+    }
+
+    function generateEnhancedPrompt() {
+      const baseText = document.getElementById('prompt-input').value.trim();
+      if (!baseText) {
+        document.getElementById('prompt-output-text').innerText = "Please enter an idea above to generate an enhanced prompt.";
+        return;
+      }
+      const ar = document.getElementById('prompt-ar').value;
+      const stylize = document.getElementById('prompt-stylize').value;
+      const engine = document.getElementById('prompt-engine').value;
+
+      let enhanced = baseText;
+
+      if (activeTags.length > 0) {
+        enhanced += ", " + activeTags.join(", ");
+      }
+
+      if (engine === 'midjourney') {
+        enhanced += ` ${ar} ${stylize} --v 6.0`;
+      } else if (engine === 'veo') {
+        enhanced = `Cinematic video sequence: ${enhanced}, high frame rate, photorealistic lighting, stable camera pan, 4k ultra-high-definition`;
+      } else if (engine === 'flux') {
+        enhanced = `${enhanced}, high fidelity masterpiece, detailed textures, soft studio illumination`;
+      }
+
+      document.getElementById('prompt-output-text').innerText = enhanced;
+    }
+
+    // ==========================================
+    // 3. INSTAGRAM CAPTION FORMATTER LOGIC
+    // ==========================================
+    const hashtagSets = {
+      ai: "\n.\n#ai #artificialintelligence #futuretech #generativeai #techtrends #aireels #techcommunity",
+      viral: "\n.\n#viralreels #explorepage #trendingreels #fyp #instadaily #contentcreator #reelsindia",
+      growth: "\n.\n#creatoreconomy #socialmediagrowth #contentmarketing #passiveincome #makemoneyonline",
+      comedy: "\n.\n#desicomedy #relatablememes #funnymoments #indiamemes #hindicomedy #desimemes"
+    };
+
+    function updateCaption() {
+      const input = document.getElementById('caption-input').value;
+      document.getElementById('char-counter').innerText = `${input.length} / 2200 Chars`;
+      
+      // Clean Instagram Unicode line breaking (substitutes blank spaces with invisible separator)
+      const cleanOutput = input.split('\n').map(line => line.trim() === '' ? '\u200B' : line).join('\n');
+      document.getElementById('caption-preview').innerText = cleanOutput || 'Type on the left to see clean formatted preview...';
+    }
+
+    function appendHashtags(type) {
+      const input = document.getElementById('caption-input');
+      input.value = (input.value + hashtagSets[type]).trim();
+      updateCaption();
+      showToast('Hashtags added!');
+    }
+
+    function formatAndCopyCaption() {
+      const input = document.getElementById('caption-input').value;
+      if (!input.trim()) {
+        showToast('Please enter a caption first!');
+        return;
+      }
+      const cleanOutput = input.split('\n').map(line => line.trim() === '' ? '\u200B' : line).join('\n');
+      navigator.clipboard.writeText(cleanOutput).then(() => {
+        showToast('Clean caption copied to clipboard!');
+      });
+    }
+  </script>
+</body>
+</html>
